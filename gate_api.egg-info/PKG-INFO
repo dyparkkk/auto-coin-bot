@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: gate-api
+Version: 6.91.0
+Summary: Gate API v4
+Home-page: https://github.com/gateio/gateapi-python
+Author: Gate API support
+Author-email: support@mail.gate.io
+License: Apache License 2.0
+Keywords: OpenAPI,OpenAPI-Generator,Gate API v4
