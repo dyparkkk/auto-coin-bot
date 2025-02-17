@@ -9,7 +9,7 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("코인 자동 매매 봇")
-        self.setGeometry(100, 100, 600, 400)
+        self.setGeometry(100, 100, 1000, 700)
         self.init_ui()
     
     def init_ui(self):

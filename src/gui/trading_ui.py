@@ -98,7 +98,7 @@ class TradingTab(QWidget):
     
     def test_api(self):
         
-        print(breakthrough_strategy('btc', '1d', 1, 'long'))
+        print(breakthrough_strategy('btc', '1h', 1, 'long'))
 
 
     def call_gate_api(self):
