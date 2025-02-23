@@ -28,34 +28,11 @@ api_instance = gate_api.EarnUniApi(api_client)
 spot_api_instance = gate_api.SpotApi(api_client)
 unified_api_instance = gate_api.UnifiedApi(api_client)
 
-
-def get_uni_currencies():
-    try:
-        # List currencies for lending
-        api_response = api_instance.list_uni_currencies()
-        print(api_response)
-    except GateApiException as ex:
-        print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
-    except ApiException as e:
-        print("Exception when calling EarnUniApi->list_uni_currencies: %s\n" % e)
-
-def get_uni_currency(currency):
-    try:
-        api_response = api_instance.get_uni_currency(currency)
-        print(api_response)
-    except GateApiException as ex:
-        print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
-    except ApiException as e:
-        print("Exception when calling EarnUniApi->get_uni_currency: %s\n" % e)
-
 # 코인 가격 가져오기
-def get_candlesticks(currency_pair, interval, limit=None):
+def get_candlesticks(currency_pair:str, interval:str, limit:int=100):
     try:
         currency_pair = convert_coin_name(currency_pair)
-        if limit is not None:
-            api_response = spot_api_instance.list_candlesticks(currency_pair, limit=limit, interval=interval)
-        else:
-            api_response = spot_api_instance.list_candlesticks(currency_pair, interval=interval)
+        api_response = spot_api_instance.list_candlesticks(currency_pair, limit=limit, interval=interval)
         return api_response
     except GateApiException as ex:
         print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
@@ -71,3 +48,16 @@ def get_list_unified_accounts():
         print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
     except ApiException as e:
         print("Exception when calling UnifiedApi->list_unified_accounts: %s\n" % e)
+
+ 
+x_gate_exptime = 10000 # int | Specify the expiration time (milliseconds); if the GATE receives the request time greater than the expiration time, the request will be rejected (optional)
+def create_order(order):
+    try:
+    # Create an order
+        api_response = spot_api_instance.create_order(order)
+        print(api_response)
+    except GateApiException as ex:
+        print("Gate api exception, label: %s, message: %s\n" % (ex.label, ex.message))
+    except ApiException as e:
+        print("Exception when calling SpotApi->create_order: %s\n" % e)
+
