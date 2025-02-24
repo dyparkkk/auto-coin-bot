@@ -1,0 +1,7 @@
+# requirements.txt
+PyQt5>=5.15
+gate-api
+numpy
+
+#  우분투에서 설치 필ㅛ
+#  sudo apt-get update && sudo apt-get install libgl1

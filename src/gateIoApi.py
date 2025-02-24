@@ -3,24 +3,14 @@ from __future__ import print_function
 import gate_api
 from gate_api.exceptions import ApiException, GateApiException
 from util.coinUtil import convert_coin_name
-from private_config import subAccountApiKey, subAccountApiSecret, tempApiKey, tempApiSecret, sizakApiKey, sizakApiSecret
+from private_config import subAccountApiKey, subAccountApiSecret, tempApiKey, tempApiSecret, sizakApiKey, sizakApiSecret, oracleApiKey, oracleApiSecret
 
-# configuration = gate_api.Configuration(
-#     host = "https://api.gateio.ws/api/v4",
-#     key = subAccountApiKey,
-#     secret = subAccountApiSecret    
-# )
-
-# configuration = gate_api.Configuration(
-#     host = "https://api.gateio.ws/api/v4",
-#     key = tempApiKey,
-#     secret = tempApiSecret
-# )
-
+key=oracleApiKey
+secret=oracleApiSecret
 configuration = gate_api.Configuration(
     host = "https://api.gateio.ws/api/v4",
-    key = sizakApiKey,
-    secret = sizakApiSecret
+    key = key,
+    secret = secret
 )
 
 api_client = gate_api.ApiClient(configuration)
